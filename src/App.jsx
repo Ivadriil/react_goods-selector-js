@@ -35,18 +35,18 @@ export const App = () => {
 
       <table className="table">
         <tbody>
-          {goods.map(x => (
+          {goods.map(good => (
             <tr
               data-cy="Good"
-              key={x}
+              key={good}
               className={
-                selectedGood === x ? 'has-background-success-light' : ''
+                good === selectedGood ? 'has-background-success-light' : ''
               }
             >
               <td className="is-vcentered">
-                {selectedGood !== x && (
+                {good !== selectedGood && (
                   <button
-                    onClick={() => setSelectedGood(x)}
+                    onClick={() => setSelectedGood(good)}
                     data-cy="AddButton"
                     type="button"
                     className="button"
@@ -54,7 +54,7 @@ export const App = () => {
                     +
                   </button>
                 )}
-                {selectedGood === x && (
+                {selectedGood === good && (
                   <button
                     onClick={() => setSelectedGood('')}
                     data-cy="RemoveButton"
@@ -66,7 +66,7 @@ export const App = () => {
                 )}
               </td>
               <td data-cy="GoodTitle" className="is-vcentered">
-                {x}
+                {good}
               </td>
             </tr>
           ))}
